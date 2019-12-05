@@ -17,9 +17,11 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("intro"));
+        // TODO make 2 different windows sizes
+        scene = new Scene(loadFXML("intro"), 700, 500);
         stage.setScene(scene);
         stage.show();
+
     }
 
     static void setRoot(String fxml) throws IOException {
