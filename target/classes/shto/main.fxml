@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
 <VBox alignment="CENTER"
       prefHeight="500.0" prefWidth="600.0"
       spacing="20.0"
@@ -10,5 +9,5 @@
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="shto.mainController">
 
-    <TextField fx:id="mainCredit" alignment="CENTER"/>
+    <TextField fx:id="mainCredit" alignment="CENTER" text="lk"/>
 </VBox>

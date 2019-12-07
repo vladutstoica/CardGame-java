@@ -16,7 +16,7 @@
 
     <Label text="Enter your CREDIT"/>
     <TextField fx:id="credit" alignment="CENTER"/>
-    <Button alignment="CENTER" onAction="#goToTheGame" text="NEW GAME"/>
+    <Button fx:id="button" alignment="CENTER" onAction="#goToTheGame" text="NEW GAME"/>
     <TextField fx:id="infoBox" alignment="CENTER" disable="true" promptText="GAME INFO"/>
 
 </VBox>
