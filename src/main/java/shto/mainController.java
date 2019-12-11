@@ -35,7 +35,7 @@ public class mainController {
     private void click(String color) {
 
         // it checks if you insert CREDIT
-        if (credit.getText().isEmpty() || credit.getText().equals("0") || !credit.getText().replaceAll("\\s", "").matches("[0-9]+")) {
+        if (credit.getText().isEmpty() || !credit.getText().replaceAll("\\s", "").matches("[0-9]+")) {
             info.setText("Please insert coins first!");
         }
         // it checks if you insert BET
@@ -46,8 +46,8 @@ public class mainController {
         else if (Integer.parseInt(credit.getText().replaceAll("\\s", "")) < Integer.parseInt(bet.getText().replaceAll("\\s", "")) && !trigger) {
             info.setText("You don't have enough credit!");
         } else {
-            //boolean chance = random.nextBoolean();
-            boolean chance = true;
+            boolean chance = random.nextBoolean();
+            //boolean chance = true;
             takeCredit();
             try {
                 flipCard(chance);
