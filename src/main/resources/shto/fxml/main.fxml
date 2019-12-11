@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<VBox prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="shto.mainController">
+
+    <TilePane alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+        <VBox.margin>
+            <Insets top="20.0"/>
+        </VBox.margin>
+        <Button mnemonicParsing="false" onAction="#redClick" text="RED"/>
+        <ImageView fitHeight="323.0" fitWidth="222.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../cards/card_back.png"/>
+        </ImageView>
+        <Button mnemonicParsing="false" onAction="#blackClick" text="BLACK"/>
+    </TilePane>
+
+    <TilePane alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+        <TextField fx:id="credit" alignment="CENTER" promptText="CREDIT"/>
+        <Button mnemonicParsing="false" onAction="#cashOutClick" text="CASH OUT"/>
+        <TextField fx:id="bet" alignment="CENTER" promptText="BET"/>
+    </TilePane>
+
+    <TextField fx:id="info" alignment="CENTER" disable="true">
+        <VBox.margin>
+            <Insets bottom="20.0"/>
+        </VBox.margin>
+    </TextField>
+
+</VBox>
