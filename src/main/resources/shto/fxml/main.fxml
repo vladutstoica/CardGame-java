@@ -13,7 +13,7 @@
             <Insets top="20.0"/>
         </VBox.margin>
         <Button mnemonicParsing="false" onAction="#redClick" text="RED"/>
-        <ImageView fitHeight="323.0" fitWidth="222.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="image" fitHeight="323.0" fitWidth="222.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../cards/card_back.png"/>
         </ImageView>
         <Button mnemonicParsing="false" onAction="#blackClick" text="BLACK"/>

@@ -46,13 +46,15 @@ public class mainController {
         else if (Integer.parseInt(credit.getText().replaceAll("\\s", "")) < Integer.parseInt(bet.getText().replaceAll("\\s", "")) && !trigger) {
             info.setText("You don't have enough credit!");
         } else {
-            boolean chance = random.nextBoolean();
+            //boolean chance = random.nextBoolean();
+            boolean chance = true;
             takeCredit();
             try {
                 flipCard(chance);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
+            checkWin(color, chance);
 
             info.setText(String.valueOf(chance));
         }
@@ -68,7 +70,7 @@ public class mainController {
     // change card according to the color
     private void flipCard(boolean chance) throws FileNotFoundException {
 
-        int index = random.ints(1, 0, 26).findFirst().getAsInt();
+        int index = random.nextInt(26);
 
         if (chance) {
             FileInputStream input = new FileInputStream(App.class.getResource(cards.cardRedImg[index]).getFile());
@@ -79,5 +81,21 @@ public class mainController {
             Image imageInput = new Image(input);
             image.setImage(imageInput);
         }
+    }
+
+    // verify if you win or not
+    private void checkWin(String color, boolean chance) {
+        if ((color.equals("red") && chance) || (color.equals("black") && !chance)) {
+            info.setText("You win!");
+            trigger = true;
+            bet.setText(String.valueOf(Integer.parseInt(bet.getText().replaceAll("\\s", "")) * 2));
+            bet.setDisable(true);
+        } else {
+            info.setText("You lose!");
+            trigger = false;
+            bet.setText("");
+            bet.setDisable(false);
+        }
+
     }
 }
