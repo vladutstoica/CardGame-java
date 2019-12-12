@@ -59,8 +59,7 @@ public class mainController {
         else if (Integer.parseInt(credit.getText().replaceAll("\\s", "")) < Integer.parseInt(bet.getText().replaceAll("\\s", "")) && !trigger) {
             info.setText("You don't have enough credit!");
         } else {
-            //boolean chance = random.nextBoolean();
-            boolean chance = true;
+            boolean chance = random.nextBoolean();
             takeCredit();
             try {
                 flipCard(chance);
