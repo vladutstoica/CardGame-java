@@ -14,22 +14,22 @@ import java.io.IOException;
 public class App extends Application {
 
 
-    private static Scene mainScene;
-    //private static Stage window;
+    private static Scene introScene, mainScene;
+    private static Stage window;
 
     @Override
     public void start(Stage stage) throws IOException {
-        //window = stage;
-        //introScene = new Scene(loadFXML("intro"), 500, 300);
-        mainScene = new Scene(loadFXML("main"), 700, 500);
-        stage.setScene(mainScene); // change to introScene when it's ready
+        window = stage;
+        introScene = new Scene(loadFXML("intro"), 500, 300);
+        mainScene = new Scene(loadFXML("intro"), 700, 500);
+        stage.setScene(introScene); // change to introScene when it's ready
         stage.show();
     }
 
     //static void setRoot(String fxml) throws IOException {
     //    introScene.setRoot(loadFXML(fxml));
     //}
-    /*
+
     static void setRoot(String setscene, String fxml) throws IOException {
         if (setscene.equals("mainScene")) {
             window.setScene(mainScene);
@@ -40,7 +40,6 @@ public class App extends Application {
         }
     }
 
-     */
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/" + fxml + ".fxml"));

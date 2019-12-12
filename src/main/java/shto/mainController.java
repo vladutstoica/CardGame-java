@@ -6,6 +6,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Random;
 
 public class mainController {
@@ -66,7 +67,11 @@ public class mainController {
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-            checkWin(color, chance);
+            try {
+                checkWin(color, chance);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
             info.setText(String.valueOf(chance));
         }
@@ -96,18 +101,20 @@ public class mainController {
     }
 
     // verify if you win or not
-    private void checkWin(String color, boolean chance) {
+    private void checkWin(String color, boolean chance) throws IOException {
         if ((color.equals("red") && chance) || (color.equals("black") && !chance)) {
             info.setText("You win!");
             trigger = true;
             bet.setText(String.valueOf(Integer.parseInt(bet.getText().replaceAll("\\s", "")) * 2));
             bet.setDisable(true);
+        } else if (credit.getText().equals("0")) {
+            App.setRoot("introScene", "intro");
         } else {
             info.setText("You lose!");
             trigger = false;
             bet.setText("");
             bet.setDisable(false);
-            //TODO add back card if you lose ----vedem
+            //TODO add back card if you lose
         }
 
     }

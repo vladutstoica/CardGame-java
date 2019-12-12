@@ -1,6 +1,15 @@
 package shto;
 
+import javafx.scene.control.Button;
+
+import java.io.IOException;
+
 public class introController {
+    public Button newGameBtn;
+
+    public void goToTheGame() throws IOException {
+        App.setRoot("mainScene", "main");
+    }
 
     /*
     public TextField credit;
@@ -25,4 +34,5 @@ public class introController {
         }
     }
     */
+
 }
