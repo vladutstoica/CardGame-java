@@ -30,6 +30,19 @@ public class mainController {
     }
 
     public void cashOutClick() {
+        if (credit.getText().isEmpty() || bet.getText().isEmpty()) {
+            info.setText("Please insert coins first!");
+        } else if (!trigger) {
+            info.setText("Pick a color first!");
+        } else if (Integer.parseInt(bet.getText()) == 0) {
+            info.setText("Try to win first!");
+        } else {
+            info.setText("DONE");
+            trigger = false;
+            credit.setText(String.valueOf(Integer.parseInt(credit.getText().replaceAll("\\s", "")) + Integer.parseInt(bet.getText().replaceAll("\\s", ""))));
+            bet.setText("");
+            bet.setDisable(false);
+        }
     }
 
     private void click(String color) {
@@ -46,8 +59,8 @@ public class mainController {
         else if (Integer.parseInt(credit.getText().replaceAll("\\s", "")) < Integer.parseInt(bet.getText().replaceAll("\\s", "")) && !trigger) {
             info.setText("You don't have enough credit!");
         } else {
-            boolean chance = random.nextBoolean();
-            //boolean chance = true;
+            //boolean chance = random.nextBoolean();
+            boolean chance = true;
             takeCredit();
             try {
                 flipCard(chance);
@@ -95,6 +108,7 @@ public class mainController {
             trigger = false;
             bet.setText("");
             bet.setDisable(false);
+            //TODO add back card if you lose ----vedem
         }
 
     }
